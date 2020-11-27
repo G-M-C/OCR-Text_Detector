@@ -11,13 +11,13 @@ import copy
 
 
 
-dw=1
-while dw==1:
+dw = 1
+while dw == 1:
     print("\nChoose from the below\n1.Convert strings in an image to text\n2.Highlight the text in an image ")
-    ch=int(input("Your Choice ?"))
+    ch = int(input("Your Choice ?"))
     loc = str(input("\nEnter the location of the image to be OCR'd\nWARNING!!! DO NOT USE QUOTES!!!!"))
 
-    if ch==1:
+    if ch == 1:
         pre = str(input("\nEnter the pre-processing required(thresh/blur)"))
         img = cv2.imread(loc)
         gsimg = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -54,8 +54,9 @@ while dw==1:
         cv2.imshow("Input Image", img)
         cv2.imshow(" Grayscale Output", gsimg)
         cv2.waitKey(0)
-    if ch==2:
+    if ch == 2:
         pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe"
+		#Location to tesseract
 
 
         def predict(scores, geometry):#To set rectangle dimensions & confidence scores
@@ -201,7 +202,7 @@ while dw==1:
             cv2.imshow("Text Detection", output)#output image
             cv2.waitKey(0)
     ch=int(input("\nWanna try again??(1-Yes/2-No)"))
-    if ch==1:
-        dw=1
+    if ch == 1:
+        dw = 1
     else:
-        dw=2
+        dw = 2
